@@ -19,7 +19,7 @@ public class InfoController {
     public ResponseEntity<InfoResponse> getInfo(@RequestParam String slackName, @RequestParam String track) {
         InfoResponse response = new InfoResponse();
 
-        response.setSlackName("Nwachukwu Chinaza Esther");
+        response.setSlackName("Esther");
 
         LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
         String currentDay = DayOfWeek.from(now).toString();
@@ -30,7 +30,7 @@ public class InfoController {
 
         response.setUtcTime(utcTime.toString());
 
-            response.setTrack("Backend");
+            response.setTrack("backend");
 
             response.setGithubFileUrl("https://github.com/NecyNazy/hngtask1/blob/master/src/main/java/com/ruggedcoder/hngtask1/MyFile.java");
 
@@ -39,5 +39,5 @@ public class InfoController {
             return new ResponseEntity(response, HttpStatus.OK);
         }
     }
-
+//http://ruggedcoder.com/info?slack_name=Esther&track=backend
 
