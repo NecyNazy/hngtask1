@@ -16,24 +16,28 @@ public class InfoController {
     }
 
     @GetMapping({"/info"})
-    public ResponseEntity<InfoResponse> getInfo(@RequestParam String slackName, @RequestParam int utcOffset, @RequestParam String track) {
+    public ResponseEntity<InfoResponse> getInfo(@RequestParam String slackName, @RequestParam String track) {
         InfoResponse response = new InfoResponse();
+
+        response.setSlackName("Nwachukwu Chinaza Esther");
+
         LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
-        String UtcTime = DayOfWeek.from(now).toString();
-        if (utcOffset >= -2 && utcOffset <= 2) {
-            response.setUtcTime(now.toString());
-            response.setSlackName("Nwachukwu Chinaza Esther");
-            response.setCurrentDay("Monday");
-            response.setUtcTime(now.toString());
+        String currentDay = DayOfWeek.from(now).toString();
+
+        response.setCurrentDay("Monday");
+
+        LocalDateTime utcTime = now.plusHours(2);
+
+        response.setUtcTime(utcTime.toString());
+
             response.setTrack("Backend");
+
             response.setGithubFileUrl("https://github.com/NecyNazy/hngtask1/blob/master/src/main/java/com/ruggedcoder/hngtask1/MyFile.java");
+
             response.setGithubRepoUrl("https://github.com/NecyNazy/hngtask1");
             response.setStatusCode(200);
             return new ResponseEntity(response, HttpStatus.OK);
-        } else {
-            response.setUtcTime("INVALID UTC OFFSET");
-            return new ResponseEntity(response, HttpStatus.BAD_REQUEST);
         }
     }
 
-}
+
