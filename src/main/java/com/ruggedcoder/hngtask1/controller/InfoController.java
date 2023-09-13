@@ -26,7 +26,8 @@ public class InfoController {
 
         response.setCurrentDay("Monday");
 
-        LocalDateTime utcTime = now.plusHours(2);
+        LocalDateTime utcTime = now.plusMinutes(2);
+
 
         response.setUtcTime(utcTime.toString());
 
