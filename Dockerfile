@@ -5,7 +5,7 @@ FROM tomcat:9.0-jre11-slim
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy your Spring Boot application WAR file into the Tomcat webapps directory
-COPY target/my-spring-boot-app.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/hngtask1.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose the default Tomcat port (8080)
 EXPOSE 8080
