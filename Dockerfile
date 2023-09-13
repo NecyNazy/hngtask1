@@ -20,5 +20,5 @@ EXPOSE 8080
 
 COPY target/hngtask1.war /usr/local/tomcat/webapps/ROOT.war
 
-# Start Tomcat and deploy your application
-CMD ["catalina.sh", "run"]
+# Start Tomcat and deploy your application#CMD ["catalina.sh", "run"]
+ENTRYPOINT ["java", "war"]
